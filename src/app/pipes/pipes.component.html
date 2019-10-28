@@ -1,0 +1,41 @@
+<div class="container">
+  <h1>Angular Pipes</h1>
+  <p>{{ e | number:'1.1-5' }}</p>
+  <p>{{ e | number:'3.1-2' }}</p>
+  <p>{{ e | number:'1.0-0' }}</p>
+  <hr>
+  <p>{{ str | uppercase | lowercase | titlecase }}</p>
+  <p>{{ str | titlecase | slice:0:5 }}</p>
+  <hr>
+  <p>{{ date | date}}</p>
+  <hr>
+  <p>{{ float }}</p>
+  <p>{{ float | currency }}</p>
+  <p>{{ float | percent }}</p>
+  <hr>
+  <pre>{{ obj | json }}</pre>
+  <hr>
+  <p>{{ 10 | mult:2 }}</p>
+  <p>{{ 10 | mult:5 }}</p>
+  <p>{{ 10 | mult:8 }}</p>
+  <p>{{ 10 | mult:13 }}</p>
+  <hr>
+  <p>{{'Hello World     ' | exMarks}}</p>
+  <hr>
+  <button class="btn" (click)="searchField = 'title'">Title</button>
+  <button class="btn" (click)="searchField = 'text'">Text</button>
+
+  <button class="btn" (click)="addPost()">Add post</button>
+
+  <input type="text" [(ngModel)]="search">
+
+  <div class="card"
+       *ngFor="let post of posts | filter:search:searchField">
+    <h2>{{post.title}}</h2>
+    <p>{{post.text}}</p>
+  </div>
+  <hr>
+  <p>Wait for it... {{promise | async}}</p>
+  <hr>
+  <p>Date: {{ date$ | async | date:'long' }}</p>
+</div>
