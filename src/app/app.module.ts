@@ -13,6 +13,8 @@ import { PipesComponent } from './pipes/pipes.component';
 import {MultByPipe} from './pipes/mult-by.pipe';
 import { ExMarksPipe } from './pipes/ex-marks.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
+import { ServicesComponent } from './services/services.component';
+import {LocalCounterService} from './services/local-counter.service';
 
 @NgModule({
   declarations: [
@@ -26,13 +28,16 @@ import { FilterPipe } from './pipes/filter.pipe';
     PipesComponent,
     MultByPipe,
     ExMarksPipe,
-    FilterPipe
+    FilterPipe,
+    ServicesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    LocalCounterService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
