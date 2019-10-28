@@ -1,1 +1,16 @@
-<p>directives works!</p>
+<div class="container">
+  <h1>Angular Directives</h1>
+
+  <p [appStyle]="red" [dStyles] = "{border: '1px solid blue', borderRadius: '5px'}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, totam?</p>
+  <p [appStyle]="blue" [dStyles] = "{border: '1px solid blue', borderRadius: '5px'}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, totam?</p>
+
+  <button class="btn" (click)="isVisible = !isVisible">Toggle</button>
+
+  <!--<div *ngIf="isVisible" class="wrap">-->
+    <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor eius fugit illo incidunt modi quaerat quo saepe sit temporibus tenetur.</p>-->
+  <!--</div>-->
+
+  <div *appIfnot="!isVisible" class="wrap">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor eius fugit illo incidunt modi quaerat quo saepe sit temporibus tenetur.</p>
+  </div>
+</div>
