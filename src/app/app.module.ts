@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PostFormComponent } from './components/post-form/post-form.component';
 import { PostComponent } from './components/post/post.component';
 import { ComponentsComponent } from './components/components.component';
@@ -15,6 +15,7 @@ import { ExMarksPipe } from './pipes/ex-marks.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { ServicesComponent } from './services/services.component';
 import {LocalCounterService} from './services/local-counter.service';
+import { FormsComponent } from './forms/forms.component';
 
 @NgModule({
   declarations: [
@@ -29,11 +30,13 @@ import {LocalCounterService} from './services/local-counter.service';
     MultByPipe,
     ExMarksPipe,
     FilterPipe,
-    ServicesComponent
+    ServicesComponent,
+    FormsComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     LocalCounterService
