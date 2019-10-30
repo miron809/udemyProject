@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {NgModule, Provider} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -16,6 +16,15 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { ServicesComponent } from './services/services.component';
 import {LocalCounterService} from './services/local-counter.service';
 import { FormsComponent } from './forms/forms.component';
+import { HttpClientComponent } from './http-client/http-client.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {AuthInterceptor} from './http-client/auth.interceptor';
+
+const INTERCEPTOR_PROVIDER: Provider = {
+  provide: HTTP_INTERCEPTORS,
+  useClass: AuthInterceptor,
+  multi: true,
+}
 
 @NgModule({
   declarations: [
@@ -31,15 +40,18 @@ import { FormsComponent } from './forms/forms.component';
     ExMarksPipe,
     FilterPipe,
     ServicesComponent,
-    FormsComponent
+    FormsComponent,
+    HttpClientComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
-    LocalCounterService
+    LocalCounterService,
+    INTERCEPTOR_PROVIDER
   ],
   bootstrap: [AppComponent]
 })
