@@ -19,6 +19,14 @@ import { FormsComponent } from './forms/forms.component';
 import { HttpClientComponent } from './http-client/http-client.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptor} from './http-client/auth.interceptor';
+import { RoutingComponent } from './routing/routing.component';
+import { AboutComponent } from './routing/about/about.component';
+import { AboutExtraComponent } from './routing/about-extra/about-extra.component';
+import { HomeComponent } from './routing/home/home.component';
+import { PostsComponent } from './routing/posts/posts.component';
+import {AppRoutingModule} from './app-routing.module';
+import { RoutingPostComponent } from './routing/routing-post/routing-post.component';
+import { ErrorPageComponent } from './routing/error-page/error-page.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -41,13 +49,21 @@ const INTERCEPTOR_PROVIDER: Provider = {
     FilterPipe,
     ServicesComponent,
     FormsComponent,
-    HttpClientComponent
+    HttpClientComponent,
+    RoutingComponent,
+    AboutComponent,
+    AboutExtraComponent,
+    HomeComponent,
+    PostsComponent,
+    RoutingPostComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [
     LocalCounterService,
