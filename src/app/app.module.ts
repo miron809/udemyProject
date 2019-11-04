@@ -27,6 +27,8 @@ import { PostsComponent } from './routing/posts/posts.component';
 import {AppRoutingModule} from './app-routing.module';
 import { RoutingPostComponent } from './routing/routing-post/routing-post.component';
 import { ErrorPageComponent } from './routing/error-page/error-page.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { AnimationsComponent } from './animations/animations.component';
 
 const INTERCEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -56,14 +58,16 @@ const INTERCEPTOR_PROVIDER: Provider = {
     HomeComponent,
     PostsComponent,
     RoutingPostComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    AnimationsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [
     LocalCounterService,
